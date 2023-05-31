@@ -1,3 +1,2 @@
 #!/bin/bash
-if u=guillaume; then
-	chown hello vincent
+["$(stat -c '%U' hello)" = "guillaume"] && chown hello vincent
