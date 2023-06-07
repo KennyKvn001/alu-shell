@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script displays a story base on /etc/passwd
 
-while IFS=':' read username password uid gid info home shell; do
+while IFS=':' read -r username password uid gid info home shell; do
     echo "The user $username is part of the $gid gang,"
     echo "lives in $home and rides $shell."
     echo "$uid’s place is protected by the passcode $password,"
