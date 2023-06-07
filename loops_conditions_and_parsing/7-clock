@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # This script the time for 12 hours(display hours from 0 to 12) and 59 minutes(display minutes from 1 to 59)
-hour=0; while [ $hour -le 12 ]; do echo "hour:$hour"; minute=1; while [ $minute -le 59 ]; do echo "$minute"; ((minute++)); done; ((hour++)); done
+hour=0; while [ $hour -le 12 ]; do echo "Hour:$hour"; minute=1; while [ $minute -le 59 ]; do echo "$minute"; ((minute++)); done; ((hour++)); done
