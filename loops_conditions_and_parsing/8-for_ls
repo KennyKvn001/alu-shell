@@ -4,4 +4,5 @@
 # In a list format
 # Where only the part of the name after the first dash is displayed 
 
-for file in *; do [ -f "$file" ] && [[ ! "$file" == .* ]] && [[ "$file" =~ -(.*) ]] && echo "${BASH_REMATCH[1]}"; done
+for file in *; do if [[ -f $file && ! $file == .* && $file =~ -(.*) ]]; then echo "${BASH_REMATCH[1]}"; fi; done
+
