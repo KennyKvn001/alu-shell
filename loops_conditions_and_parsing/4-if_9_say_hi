@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script displays "Best School", but on the 9th line displays "Best School" and then Hi.
+n=1; while [ $n -le 10 ]; do if [ $n -eq 9 ]; then echo -e "Best School\nHi"; else echo "Best School"; fi; n=$((n+1)); done
