@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times, but display "bad luck" for the 4th loop iteration
+# and also displays "good luck" for the 8th loop iteration
+n=1; while [ $n -le 10 ]; do if [ $n -eq 4 ]; then echo "bad luck"; elif [ $n -eq 8 ]; then echo "good luck"; else echo "Best School"; fi; n=$((n+1)); done
