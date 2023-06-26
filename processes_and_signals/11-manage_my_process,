@@ -1,0 +1,31 @@
+#!usr/bin/env bash
+# This script displays the following;
+#It writes indefinitely I am alive! to the file /tmp/my_process
+#In between every I am alive! message, the program pauses for 2 seconds
+
+while true; do echo "I am alive!" >> /tmp/my_process; sleep 2; done
+
+#(init) script 11-manage_my_process that manages manage_my_process
+
+case "$1" in
+  start)
+    start-stop-daemon --start --quiet --pidfile /var/run/my_process.pid --exec /usr/bin/manage_my_process
+    echo "manage_my_process started"
+    ;;
+  stop)
+    start-stop-daemon --stop --quiet --pidfile /var/run/my_process.pid
+    rm -f /var/run/my_process.pid
+    echo "manage_my_process stopped"
+    ;;
+  restart)
+    start-stop-daemon --stop --quiet --pidfile /var/run/my_process.pid
+    rm -f /var/run/my_process.pid
+    start-stop-daemon --start --quiet --pidfile /var/run/my_process.pid --exec /usr/bin/manage_my_process
+    echo "manage_my_process restarted"
+    ;;
+  *)
+    echo "Usage: manage_my_process {start|stop|restart}"
+    exit 1
+    ;;
+esac
+    
