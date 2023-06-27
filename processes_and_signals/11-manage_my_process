@@ -4,7 +4,7 @@
 case "$1" in
   start)
 # Start manage_my_process
-    manage_my_process &
+    ./manage_my_process &
 # Create a file containing its PID in /var/run/my_process.pid
     touch /var/run/my_process.pid
     echo $! > /var/run/my_process.pid
@@ -23,7 +23,7 @@ case "$1" in
 # Delete the file /var/run/my_process.pid
     rm /var/run/my_process.pid
 # Start manage_my_process
-    manage_my_process &
+    ./manage_my_process &
 # Create a file containing its PID in /var/run/my_process.pid
     touch /var/run/my_process.pid
     echo $! > /var/run/my_process.pid
