@@ -12,14 +12,14 @@ case "$1" in
     ;;
   stop)
 # Stop manage_my_process
-    kill '$(cat /var/run/my_process.pid)'
+    kill "$(cat /var/run/my_process.pid)"
 # Delete the file /var/run/my_process.pid
     rm /var/run/my_process.pid
     echo "manage_my_process stopped"
     ;;
   restart)
 # Stop manage_my_process
-    kill '$(cat /var/run/my_process.pid)'
+    kill "$(cat /var/run/my_process.pid)"
 # Delete the file /var/run/my_process.pid
     rm /var/run/my_process.pid
 # Start manage_my_process
