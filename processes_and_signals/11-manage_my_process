@@ -4,7 +4,7 @@
 case "$1" in
   start)
 # Start manage_my_process
-    nohup manage_my_process > /dev/null 2>&1 &
+    manage_my_process &
 # Create a file containing its PID in /var/run/my_process.pid
     touch /var/run/my_process.pid
     echo $! > /var/run/my_process.pid
@@ -12,25 +12,25 @@ case "$1" in
     ;;
   stop)
 # Stop manage_my_process
-    kill $(cat /var/run/my_process.pid)
+    kill '$(cat /var/run/my_process.pid)'
 # Delete the file /var/run/my_process.pid
     rm /var/run/my_process.pid
     echo "manage_my_process stopped"
     ;;
   restart)
 # Stop manage_my_process
-    kill $(cat /var/run/my_process.pid)
+    kill '$(cat /var/run/my_process.pid)'
 # Delete the file /var/run/my_process.pid
     rm /var/run/my_process.pid
 # Start manage_my_process
-    nohup manage_my_process > /dev/null 2>&1 &
+    manage_my_process &
 # Create a file containing its PID in /var/run/my_process.pid
     touch /var/run/my_process.pid
     echo $! > /var/run/my_process.pid
     echo "manage_my_process restarted"
     ;;
   *)
-    echo "Usage: $0 {start|stop|restart}"
+    echo "Usage: manage_my_process {start|stop|restart}"
     exit 1
     ;;
 esac
