@@ -14,4 +14,5 @@ trap 'echo "I hate the kill command" && exit' SIGTERM
 trap 'echo "Y U no love me?!"' SIGINT
 # Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 trap 'rm -f /var/run/myscript.pid && exit' SIGQUIT SIGTERM
+wait
 
