@@ -7,17 +7,13 @@ echo $$ > /var/run/myscript.pid
 #Displays To infinity and beyond indefinitely
 while true; do echo "To infinity and beyond"; sleep 1; done
 
-cleanup() {
-    rm -f /var/run/myscript.pid
-    exit
-}
-
 # Displays I hate the kill command when receiving a SIGTERM signal
-trap 'echo I hate the kill command && cleanup' 15
-
 # Displays Y U no love me?! when receiving a SIGINT signal
-trap 'echo Y U no love me?!' 2
-
 # Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
-trap 'cleanup' 3
 
+function love() {
+    rm /var/run/myscript.pid
+    exit 1
+}
+trap "echo I hate the kill command;love" SIGTERM
+trap "echo Y U no love me?!;love" SIGINT
