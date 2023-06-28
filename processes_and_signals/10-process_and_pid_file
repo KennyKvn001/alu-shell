@@ -3,7 +3,7 @@
 # Creates the file /var/run/myscript.pid containing its PID
 echo $$ > /var/run/myscript.pid
 # Displays To infinity and beyond indefinitely
-while true; do echo "To infinity and beyond"; sleep 1; done
+while true; do echo "To infinity and beyond"; done
 
 #Displays I hate the kill command when receiving a SIGTERM signal
 #Displays Y U no love me?! when receiving a SIGINT signal
@@ -14,6 +14,6 @@ function cleanup() {
         exit 1
 }
 
-trap 'echo"I hate the kill comman"; cleanup' SIGTERM
-trap 'echo "Y U no love me?!"' SIGINT
-trap 'cleanup' SIGQUIT
+trap "echoI hate the kill comman; cleanup" SIGTERM
+trap "echo Y U no love me?!" SIGINT
+trap "cleanup" SIGQUIT
