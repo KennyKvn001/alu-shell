@@ -15,5 +15,5 @@ function love() {
     rm /var/run/myscript.pid
     exit 1
 }
-trap "echo I hate the kill command;love" SIGTERM
-trap "echo Y U no love me?!;love" SIGINT
+trap 'echo "I hate the kill command"; love' SIGTERM
+trap 'echo "Y U no love me?!"; love' SIGINT
